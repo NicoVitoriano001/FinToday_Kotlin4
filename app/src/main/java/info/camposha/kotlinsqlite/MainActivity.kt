@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                 REQUEST_CODE_WRITE_EXTERNAL_STORAGE
             )
         } else {
+
             backupDatabase()
             showToast("backs")
         }
