@@ -79,12 +79,10 @@ class MainActivity : AppCompatActivity() {
                 REQUEST_CODE_WRITE_EXTERNAL_STORAGE
             )
         } else {
-
             backupDatabase()
             showToast("backs")
         }
 
-        // Define diaHoraEditTxt com dataFormatada
         diaHoraEditTxt.setText(mostraDataHoraAtual())
 
         handleInserts()
@@ -135,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                 diaHoraEditTxt.setText(mostraDataHoraAtual())
             }catch (e: Exception){
                 e.printStackTrace()
-                 //showToast(valDespEditTxt.text.toString())
+                //showToast(valDespEditTxt.text.toString())
                 //showToast(e.message.toString()) //ORIG não estava chamando, subi
             }
         }
@@ -153,9 +151,9 @@ class MainActivity : AppCompatActivity() {
                     diaHoraEditTxt.text.toString()
                 )
                 if (isUpdate == true)
-                  Toast.makeText(this, "Data Updated Successfully:" + mostraDataHoraAtual(), Toast.LENGTH_LONG).show()
-                  //  showToast("Data Updated Successfully: $dataHoraFormatada")
-                  //  showToast("Data Updated Successfully")
+                    Toast.makeText(this, "Data Updated Successfully:" + mostraDataHoraAtual(), Toast.LENGTH_LONG).show()
+                //  showToast("Data Updated Successfully: $dataHoraFormatada")
+                //  showToast("Data Updated Successfully")
                 else
                     showToast("Data Not Updated")
             }catch (e: Exception){
@@ -180,26 +178,26 @@ class MainActivity : AppCompatActivity() {
 
     fun handleViewing() {
         viewBtn.setOnClickListener(
-                View.OnClickListener {
-                    val res = dbHelper.allData
-                    if (res.count == 0) {
-                        showDialog("Error", "No Data Found")
-                        return@OnClickListener
-                    }
-
-                    val buffer = StringBuffer()
-                    while (res.moveToNext()) {
-                       // buffer.append("ID :" + res.getString(0) + "\n")
-                        buffer.append(res.getString(0) + "\n")
-                        buffer.append(res.getString(1) + "\n")
-                        buffer.append(res.getString(2) + "\n")
-                        buffer.append(res.getString(3) + "\n")
-                        buffer.append(res.getString(4) + "\n")
-                        buffer.append(res.getString(5) + "\n")
-                        buffer.append("\n") // Linha em branco como separador
-                    }
-                    showDialog("Data Listing", buffer.toString())
+            View.OnClickListener {
+                val res = dbHelper.allData
+                if (res.count == 0) {
+                    showDialog("Error", "No Data Found")
+                    return@OnClickListener
                 }
+
+                val buffer = StringBuffer()
+                while (res.moveToNext()) {
+                    // buffer.append("ID :" + res.getString(0) + "\n")
+                    buffer.append(res.getString(0) + "\n")
+                    buffer.append(res.getString(1) + "\n")
+                    buffer.append(res.getString(2) + "\n")
+                    buffer.append(res.getString(3) + "\n")
+                    buffer.append(res.getString(4) + "\n")
+                    buffer.append(res.getString(5) + "\n")
+                    buffer.append("\n") // Linha em branco como separador
+                }
+                showDialog("Data Listing", buffer.toString())
+            }
         )
     }
 

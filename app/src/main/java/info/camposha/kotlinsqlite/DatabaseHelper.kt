@@ -7,7 +7,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 
 class DatabaseHelper(context: Context) :
-        SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
+    SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
         if (!isTableExists(db, TABLE_NAME)) {
@@ -62,7 +62,9 @@ class DatabaseHelper(context: Context) :
     val allData : Cursor
         get() {
             val db = this.writableDatabase
-            val res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
+            val res = db.rawQuery("SELECT * FROM $TABLE_NAME ORDER BY $COL_6 DESC", null)
+
+            //val res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
             return res
         }
 
@@ -75,7 +77,7 @@ class DatabaseHelper(context: Context) :
         val COL_4 = "FONTE"
         val COL_5 = "DESCRICAO"
         val COL_6 = "diaHora"
-
-
     }
+
+
 }
