@@ -7,7 +7,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 
 class DatabaseHelper(context: Context) :
-        SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
+    SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
         if (!isTableExists(db, TABLE_NAME)) {
