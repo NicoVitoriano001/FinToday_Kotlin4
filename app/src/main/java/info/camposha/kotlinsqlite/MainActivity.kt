@@ -79,12 +79,10 @@ class MainActivity : AppCompatActivity() {
                 REQUEST_CODE_WRITE_EXTERNAL_STORAGE
             )
         } else {
-
             backupDatabase()
             showToast("backs")
         }
 
-        // Define diaHoraEditTxt com dataFormatada
         diaHoraEditTxt.setText(mostraDataHoraAtual())
 
         handleInserts()
